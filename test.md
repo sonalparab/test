@@ -12,10 +12,10 @@ If open fails, -1 is returned, extra error information can be found in errno.
 open(<PATH>,<FLAGS>,<MODE>)
 ```
 
-**MODE**  
+mode  
 * Only used when creating a file. Set the file's permissions using a 3 digit octal #  
 
-**FLAGS**  
+flags  
 * Determine what you plan to do with the file.  
 * Use the following constants:  
 	- `0_RDONLY`: read only  
