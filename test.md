@@ -13,11 +13,15 @@ open(<PATH>,<FLAGS>,<MODE>)
 ```
 
 **mode**
+
 Only used when creating a file. Set the file's permissions using a 3 digit octal #
 
 **flags**
+
 Determine what you plan to do with the file.
+
 Use the following constants:
+
 	```C0_RDONLY```
 	```C0_WRONLY```
 	```C0_RDWR```: read and write
@@ -27,6 +31,7 @@ Use the following constants:
 	```C0_EXCL```: must be combined with 0_CREAT, will return an error if the file exists
 
 Each flag is a number, to combine flags we use bitwise OR
+
 	0_WRONLY = 1		00000001
 	0_APPEND = 8		00001000
 	0_WRONLY | 0_APPEND 	00001001
