@@ -8,7 +8,9 @@ We continued our discussion about files.
 Add a file to the file table and returns it file descriptor
 If open fails, -1 is returned, extra error information can be found in errno.
 * errno is an int variable that can be found in <errno.h>, using strerror (in string.h) or errno will return a string description of the error
+```C
 open(<PATH>,<FLAGS>,<MODE>)
+```
 		
 **mode**
 Only used when creating a file. Set the file's permissions using a 3 digit octal #
@@ -16,13 +18,14 @@ Only used when creating a file. Set the file's permissions using a 3 digit octal
 **flags**
 Determine what you plan to do with the file.
 Use the following constants:
-	0_RDONLY
-	0_WRONLY
-	0_RDWR: read and write
-	0_APPEND: write at the end
-	0_TRUNC: start at beginning (if combined with write would overwrite file)
-	0_CREAT: creates the file, must be provided if file does not exist, opens if it exists
-	0_EXCL: must be combined with 0_CREAT, will return an error if the file exists
+	```C0_RDONLY```
+	```C0_WRONLY```
+	```C0_RDWR```: read and write
+	```C0_APPEND```: write at the end
+	```C0_TRUNC```: start at beginning (if combined with write would overwrite file)
+	```C0_CREAT```: creates the file, must be provided if file does not exist, opens if it exists
+	```C0_EXCL```: must be combined with 0_CREAT, will return an error if the file exists
+	
 Each flag is a number, to combine flags we use bitwise OR
 	0_WRONLY = 1		00000001
 	0_APPEND = 8		00001000
