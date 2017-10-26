@@ -22,7 +22,7 @@ flags
 	- `0_WRONLY`: write only  
 	- `0_RDWR`: read and write  
 	- `0_APPEND`: start at the end  
-	- `0_TRUNC`: start at the beginning (if combined with write would overwrite file)  
+	- `0_TRUNC`: start at the beginning (if combined with write would overwrite the file)  
 	- `0_CREAT`: creates the file, must be used if file does not exist, opens file if it exists  
 	- `0_EXCL`: must be combined with `0_CREAT`, will return an error if the file exists  
 * Each flag is a number, to combine flags we use bitwise OR
