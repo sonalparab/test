@@ -14,6 +14,7 @@ open(<PATH>,<FLAGS>,<MODE>)
 
 **mode**
 Only used when creating a file. Set the file's permissions using a 3 digit octal #
+
 **flags**
 Determine what you plan to do with the file.
 Use the following constants:
@@ -24,10 +25,12 @@ Use the following constants:
 	```C0_TRUNC```: start at beginning (if combined with write would overwrite file)
 	```C0_CREAT```: creates the file, must be provided if file does not exist, opens if it exists
 	```C0_EXCL```: must be combined with 0_CREAT, will return an error if the file exists
+
 Each flag is a number, to combine flags we use bitwise OR
 	0_WRONLY = 1		00000001
 	0_APPEND = 8		00001000
 	0_WRONLY | 0_APPEND 	00001001
+
 
 ---
 ## Tuesday, 10/24 File This Under Useful Information by Charles Weng
