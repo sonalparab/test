@@ -7,7 +7,7 @@ We continued our discussion about files.
 `#include <fcntl.h>`  
 Adds a file to the file table and returns it file descriptor  
 If open fails, -1 is returned, extra error information can be found in errno.  
-* errno is an int variable that can be found in `<errno.h>`, using strerror (in string.h) or errno will return a string description of the error  
+* `errno` is an int variable that can be found in `<errno.h>`, using strerror (in `string.h`) or errno will return a string description of the error  
 ```C
 open(<PATH>,<FLAGS>,<MODE>)
 ```
