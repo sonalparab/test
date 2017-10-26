@@ -26,10 +26,10 @@ flags
 	- `0_CREAT`: creates the file, must be used if file does not exist, opens file if it exists  
 	- `0_EXCL`: must be combined with `0_CREAT`, will return an error if the file exists  
 * Each flag is a number, to combine flags we use bitwise OR
-       	```C
+       	```
 	0_WRONLY = 1		00000001  
 	0_APPEND = 8  	   	00001000  
-	0_WRONLY | 0_APPEND 	00001001
+	0_WRONLY | 0_APPEND =	00001001
 	```
 
 ---
