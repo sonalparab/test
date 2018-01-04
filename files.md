@@ -1,6 +1,6 @@
 ## Wednesday, 1/3 Socket to Me by Sonal Parab
 
-**Tech News:** [NAME] (link)
+**Tech News:** [Amazon Patents Blended Reality Mirror] (https://www.geekwire.com/2018/amazon-patents-blended-reality-mirror-shows-wearing-virtual-clothes-virtual-locales/)
 
 ### Network Ports  
 Allow a single computer to run multiple services.  
