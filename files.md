@@ -3,7 +3,7 @@
 **Tech News:** [NAME] (link)
 
 ### Network Ports  
-- Allow a single computer to run multiple services.  
+Allow a single computer to run multiple services.  
 * A socket combines an IP address and port.  
 
 Each computer has 2^16 (65,536) ports.   
