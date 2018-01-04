@@ -3,9 +3,9 @@
 **Tech News:** [NAME] (link)
 
 ### Network Ports  
-Allow a single computer to run multiple services.  
-  A socket combines an IP address and port.  
-Each computer has 2^16 (65,536) ports.
+-Allow a single computer to run multiple services.  
+-A socket combines an IP address and port.  
+-Each computer has 2^16 (65,536) ports.
 
 Some ports are reserved for specific services.
 * 80: http  
@@ -13,21 +13,21 @@ Some ports are reserved for specific services.
 * 443: ssl
 
 You can select any port, as long as it wont conflict with a service running on the desired computer.   
-* Ports < 1024 are reserved and should generally not be used
+* ports < 1024 are reserved and should generally not be used
 * `/etc/services` will have a list of registered ports for your local system
 
 ### Network Connection Types
 
 #### Stream Sockets  
-Reliable 2 way communication.  
-Must be connected on both ends.  
-Data is received in the order it is sent. (not as easily done as it sounds)  
-Most use the Transmission Control Protocol (TCP).  
+-Reliable 2 way communication.  
+-Must be connected on both ends.  
+-Data is received in the order it is sent. (not as easily done as it sounds)  
+-Most use the Transmission Control Protocol (TCP).  
 
 #### Datagram Sockets  
-"Connectionless" - an established connection is not required.  
-Data sent may be received out of order (or not at all).  
-Uses the User Datagram Protocol.    
+-"Connectionless" - an established connection is not required.  
+-Data sent may be received out of order (or not at all).  
+-Uses the User Datagram Protocol.    
 
 ---
 ## Tuesday, 1.2.18: Socket to Me, by Ida Wang
