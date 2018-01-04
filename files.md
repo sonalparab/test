@@ -19,15 +19,15 @@ You can select any port, as long as it wont conflict with a service running on t
 ### Network Connection Types
 
 #### Stream Sockets  
--Reliable 2 way communication.  
--Must be connected on both ends.  
--Data is received in the order it is sent. (not as easily done as it sounds)  
--Most use the Transmission Control Protocol (TCP).  
+*Reliable 2 way communication.  
+*Must be connected on both ends.  
+*Data is received in the order it is sent. (not as easily done as it sounds)  
+*Most use the Transmission Control Protocol (TCP).  
 
 #### Datagram Sockets  
--"Connectionless" - an established connection is not required.  
--Data sent may be received out of order (or not at all).  
--Uses the User Datagram Protocol.    
+*"Connectionless" - an established connection is not required.  
+*Data sent may be received out of order (or not at all).  
+*Uses the User Datagram Protocol.    
 
 ---
 ## Tuesday, 1.2.18: Socket to Me, by Ida Wang
