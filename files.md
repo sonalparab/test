@@ -12,7 +12,7 @@ Some ports are reserved for specific services.
 * 22: ssh  
 * 443: ssl
 
-You can select any port, as long as it wont conflict with a service running on the desired computer.   
+You can select any port, as long as it won't conflict with a service running on the desired computer.   
 * ports < 1024 are reserved and should generally not be used
 * `/etc/services` will have a list of registered ports for your local system
 
