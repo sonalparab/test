@@ -1,66 +1,94 @@
-# 10/24 Aim: File this under useful information
+## Wednesday, 1/3 Socket to Me by Sonal Parab
 
-What are the different kinds of file permissions?
+**Tech News:** [NAME] (link)
 
-## File permissions
-* read|write|execute
-* user|group|others
+### Network Ports  
+Allow a single computer to run multiple services.  
+  A socket combines an IP address and port.  
+Each computer has 2^16 (65,536) ports.
 
-Permissions can be represented as 3-digit binary #s, or 1-digit octals.
-* 100 <==> 4 => read, only
-* 111 <==> 7, read, write, execute
+Some ports are reserved for specific services.
+* 80: http  
+* 22: ssh  
+* 443: ssl  
+You can select any port, as long as it wont conflict with a service running on the desired computer.   
+* Ports < 1024 are reserved and should generally not be used
+* `/etc/services` will have a list of registered ports for your local system
 
-There are 3 permission "areas": user, group, others. Each area can have its own
-permissions.
-* 0644 => user: read+write, group: read, other: read
+### Network Connection Types
 
-## File Table
-A list of all the files used by a program while it is running. Contains basic
-information like the file's location & size.
+#### Stream Sockets  
+Reliable 2 way communication.  
+Must be connected on both ends.  
+Data is received in the order it is sent. (not as easily done as it sounds)  
+Most use the Transmission Control Protocol (TCP).  
 
-The file table has a limited size, which is a power of 2 and commonly 256.
-`getdtablesize()` will return this value.
+#### Datagram Sockets  
+"Connectionless" - an established connection is not required.  
+Data sent may be received out of order (or not at all).  
+Uses the User Datagram Protocol.    
 
-*NOTE:* `getdtablesize()` *IS DEPRECATED*
+---
+## Tuesday, 1.2.18: Socket to Me, by Ida Wang
 
-Each file is given an integer index, starting at 0, this is referred to as the
-file descriptor.
+**Tech News:** [Gaming addiction classified as disorder by WHO](http://www.bbc.com/news/technology-42541404)
 
-There are 3 files always open in the table:
-* 0 or `STDIN_FILENO`: stdin
-* 1 or `STDOUT_FILENO`: stdout
-* 2 or `STDERR_FILENO`: stderr
+### Socket
+A connection between 2 programs over a *network*.  
+A socket corresponds to an IP (internet protocol) Address / Port pair.
 
-# 10/25 Aim: Opening up a world of possibilities
+#### To use a socket
+1. create the socket (kind of like creating the WKP)
+2. bind it to an address and port
+3. listen (creator) / initiate a connection (client)
+4. send / receive data
 
-## `open - <fctnl.h>`
+### IP Addresses
+*All* devices connected to the internet have an IP address.  
+IP addresses come in 2 flavors, IPv4 (the main standard) and IPv6 (what should be the main standard).  
+Addresses are allocated in blocks to make routing easier.
 
-Adds a file to the file table and returns its file dscriptor.
-If open fails, -1 is returned, extra error information can be found
-can be found in `errno`.
-* `errno` is an int variable that can be found in `<errno.h>`, using
-  strerror (in `string.h`) on errno will return a string description
-  of the error.
+**IPv4:** 2 byte addresses of the form `[0-255].[0-255].[0-255].[0-255]`  
+- Each group is called an *octet*.  
+- At most there are 2^32, or ~4.3 billion IPv4 addresses.
 
-`open( <PATH> , <FLAGS> , <MODE> )`
+**IPv6:** 16 byte addresses of the form: `[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]`  
+- Each group is known as a *hextet* (although not as standard as the octet).  
+- Leading 0s are ignored.  
 
-* mode
-  - Only used when creating a file. Set the new file's permissions using a
-    3 digit octal #
-* flags
-  - Determine what you plan to do with the file
-  - Use only the following constants:
-    * `O_RDONLY`
-    * `O_WRONLY`
-    * `O_RDWR`
-    * `O_APPEND`
-    * `O_TRUNC`
-    * `O_CREAT`
-    * `O_EXCL`: when combined with `O_CREAT`, will return an error if the file
-      exists
-  - Each flag is a number, to combine flags we use bitwise OR
-    ```
-    O_WRONLY = 1            00000001
-    O_APPEND = 8            00001000
-    O_WRONLY | O_APPEND =   00001001
-    ```
+Any number of consecutive all 0 hextets can be replaced with `::`
+
+For example:  
+`0000 : 0000 : 0000 : 0000 : 004f : 13c2 : 0009 : a2d2`  
+can also be written as  
+`:: 4f : 13c2 : 9 : a2d2`
+
+---
+## Monday, 12/18 Always tip your servers by Jerome Freudenberg
+
+**Tech news:** [Twitter cracks down on hate](https://www.washingtonpost.com/news/the-switch/wp/2017/12/18/twitter-purge-suspends-account-of-far-right-leader-who-was-retweeted-by-trump/?utm_term=.56ee6be9cd9b)
+
+#### Homework Tips
+* You can pass variable (ACK) to confirm connections between server and client
+  * a more robust method would be to pass an integer and perform an operation on it
+* Put the server in a forever loop and then place a while loop inside that runs until the client exits
+  * Since the pipe is not removed, use sighandler to remove it then exits
+
+#### Forking Server/Client Design Pattern
+* Handshake
+  1) Client connects to server and sends the private FIFO name. Client waits for a response from the server.
+  2) Server receives client’s message and forks off a subserver
+  3) Subserver connects to client FIFO, sending an initial acknowledgement message
+  4) Client receives subserver’s message, removes its private FIFO
+
+* Operation
+  1) Server removes WKP and closes any connections to the client
+  2) Server recreates WKP and waits for a new connection
+  3) Subserver (wkp) and client (pp) send information back and forth
+
+* Pros and Cons
+  * Simple way to handle multiple clients at once
+  * Downside is a lack of communication among clients and subservers (which may not be necessary)
+
+
+---
