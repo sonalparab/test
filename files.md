@@ -10,7 +10,8 @@ Each computer has 2^16 (65,536) ports.
 Some ports are reserved for specific services.
 * 80: http  
 * 22: ssh  
-* 443: ssl  
+* 443: ssl
+
 You can select any port, as long as it wont conflict with a service running on the desired computer.   
 * Ports < 1024 are reserved and should generally not be used
 * `/etc/services` will have a list of registered ports for your local system
