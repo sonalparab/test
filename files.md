@@ -6,7 +6,7 @@
 -Allow a single computer to run multiple services.  
 * A socket combines an IP address and port.  
 
-Each computer has 2^16 (65,536) ports.
+Each computer has 2^16 (65,536) ports.   
 Some ports are reserved for specific services.
 * 80: http  
 * 22: ssh  
